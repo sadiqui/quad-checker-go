@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func QuadB(x, y int) {
 	if x <= 0 || y <= 0 {
 		return
 	}
-
 	for row := 1; row <= y; row++ {
 		for col := 1; col <= x; col++ {
 			if row == 1 && col == 1 {
@@ -34,19 +37,11 @@ func QuadB(x, y int) {
 }
 
 func main() {
-	QuadB(5, 3)
-	QuadB(5, 1)
-	QuadB(1, 1)
-	QuadB(1, 5)
+	if len(os.Args) == 3 {
+		x, _ := strconv.Atoi(os.Args[1])
+		y, _ := strconv.Atoi(os.Args[2])
+		QuadB(x, y)
+	} else {
+		return
+	}
 }
-
-// /***\
-// *   *
-// \***/
-// /***\
-// /
-// /
-// *
-// *
-// *
-// \
